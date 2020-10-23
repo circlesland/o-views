@@ -1,6 +1,7 @@
 <script lang="ts">
   import { OmoHead } from "./";
   import { Arguments, Component, Definition } from "o-types";
+  // import { navigate } from "o-types";
 
   export let manifest: string;
   export let childStyle = "";
@@ -8,13 +9,13 @@
   let svelteComponent = null;
   let component: Component<Arguments, Definition> = null;
 
-  if (manifest != "") {
-    component = Component.fromString(manifest, window.o.registry);
-    if (!component.isComposite()) {
-      var leaf: any = component;
-      svelteComponent = window.o.registry.getClass(leaf.getSvelteView());
-    }
-  }
+  // if (manifest != "") {
+  //   component = Component.fromString(manifest, window.o.registry);
+  //   if (!component.isComposite()) {
+  //     var leaf: any = component;
+  //     svelteComponent = window.o.registry.getClass(leaf.getSvelteView());
+  //   }
+  // }
 </script>
 
 <style>
@@ -45,10 +46,13 @@
       {/each}
     </section>
   {:else}
+
+  <!-- on:navigateTo={(args) => navigate(args)} -->
     <section
       style="{childStyle} overflow: hidden; height:100%;position:relative;">
-      <svelte:component this={svelteComponent} />
+      <svelte:component
+        this={svelteComponent}
+        />
     </section>
   {/if}
 {/if}
-LOADED

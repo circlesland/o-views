@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { o, navigateTo } from "o-types";
+
     // import { navigateTo } from "../../kernel/viewRegistry";
     // import { CirclesWrapper } from "../../kernel/circles-protocol/circlesActions";
     let seedPhrase = "";
@@ -10,6 +12,7 @@
         // navigateTo("safe");
         alert("loginaction");
     }
+
 </script>
 
 <div class="h-full overflow-y-scroll">
@@ -26,6 +29,11 @@
                 bind:value={seedPhrase}
                 class="text-grey-darkest flex-1 p-2 m-1 bg-transparent" />
         </div>
-        <button class="w-full mt-2" on:click={() => login()}>login</button>
+        <!-- <button
+            class="w-full mt-2"
+            on:click={() => navigateTo({
+                    dapp: o.WALLET,
+                    route: 'index',
+                })}>login</button> -->
     </div>
 </div>

@@ -1,4 +1,6 @@
 <script lang="ts">
+  // import { Compositor } from "..";
+
   // import { Compositor, OmoHead } from "./../index";
   //   import GridCompositor from "./gridCompositor/GridCompositor.svelte";
   // import { loader } from "./_other/loader";
@@ -93,7 +95,15 @@
   //     ? "/bundle.css"
   //     : "https://hub.textile.io/ipns/bafzbeigrqxbkog345dvrbl7puqjw4aggbbqrgtkq6cx6hvtpy326oifycq/build/bundle.css";
   // let title = "omo.earth";
+
+  export let manifest = "";
 </script>
+
 <!-- 
 <OmoHead  {title} />
-<Compositor {manifest}/> -->
+ -->
+{#if manifest == ''}
+  °OS booting... @samuel make booting screen
+{:else}
+  <!-- <Compositor {manifest} /> -->
+{/if}

@@ -7,7 +7,7 @@
     local || development
       ? "/bundle.css"
       : "https://hub.textile.io/ipns/bafzbeigrqxbkog345dvrbl7puqjw4aggbbqrgtkq6cx6hvtpy326oifycq/build/bundle.css";
-  export let title = omo.earth;
+  export let title = "omo.earth";
 </script>
 
 <svelte:head>

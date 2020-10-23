@@ -12,13 +12,13 @@ import UnlockSafe from "./_other/UnlockSafe.svelte"
 import Wallet from "./_other/Wallet.svelte"
 import WalletLogin from "./_other/WalletLogin.svelte"
 
-import App from "./_other/App.svelte";
+import Boot from "./Boot.svelte";
 import Compositor from "./Compositor.svelte";
 import type { Component, Composite, Definition, Leaf, SvelteView, } from "o-types";
 import type { Arguments as Args, Constructor } from "o-types";
 import { CssGridArguments, CssGridDefinition, CssGridLayout, DefaultLayout, SvelteViewArguments, SvelteViewDefinition, SvelteViewLeaf } from "./_other/foo";
 
-export { App, Compositor, OmoHead, ViewNotRegistered, Component };
+export { Boot, Compositor, OmoHead, ViewNotRegistered, Component };
 export let Views: SvelteView[] = [Blubb, ErrorView, GetTrust, Register, Safe, TextileLogin, TrustSomeone, UnlockSafe, Wallet, WalletLogin];
 export let Arguments: { new(): Args }[] = [CssGridArguments, SvelteViewArguments];
 export let Definitions: { new(): Definition }[] = [SvelteViewDefinition, CssGridDefinition];
