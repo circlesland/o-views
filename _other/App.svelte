@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GridCompositor, OmoHead } from "./../index";
+  // import { Compositor, OmoHead } from "./../index";
   //   import GridCompositor from "./gridCompositor/GridCompositor.svelte";
   // import { loader } from "./_other/loader";
   // import {xfetch, isLocal} from "./main";
@@ -7,7 +7,7 @@
   //   import * as page from "page";
   // import { BucketContinuationStorage } from "./command/bucketContinuation";
 
-  export let manifest: string;
+  // export let manifest: string;
   // let runtime = window.o.registry.getNewInstance<SvelteRuntime>(
   //   "SvelteRuntime",
   //   {}
@@ -84,39 +84,16 @@
   //   }, 5000);
   // }, 5000);
 
-  let local =
-    window.location.hostname == "localhost" ||
-    window.location.hostname == "127.0.0.1";
-  let development = window.location.hostname == "omo.local";
-  let css =
-    local || development
-      ? "/bundle.css"
-      : "https://hub.textile.io/ipns/bafzbeigrqxbkog345dvrbl7puqjw4aggbbqrgtkq6cx6hvtpy326oifycq/build/bundle.css";
-  let title = "omo.earth";
+  // let local =
+  //   window.location.hostname == "localhost" ||
+  //   window.location.hostname == "127.0.0.1";
+  // let development = window.location.hostname == "omo.local";
+  // let css =
+  //   local || development
+  //     ? "/bundle.css"
+  //     : "https://hub.textile.io/ipns/bafzbeigrqxbkog345dvrbl7puqjw4aggbbqrgtkq6cx6hvtpy326oifycq/build/bundle.css";
+  // let title = "omo.earth";
 </script>
-
-<style global>
-  @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-  @tailwind base;
-  @tailwind utilities;
-  @tailwind components;
-
-  html,
-  body {
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @apply font-sans;
-  }
-</style>
-
-<OmoHead {css} {title} />
-<GridCompositor {manifest}/>
+<!-- 
+<OmoHead  {title} />
+<Compositor {manifest}/> -->
