@@ -2,7 +2,8 @@
   "name": "o-views",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/omoearth/o-views/issues"
   },
-  "homepage": "https://github.com/omoearth/o-views#readme"
+  "homepage": "https://github.com/omoearth/o-views#readme",
+  "dependencies": {
+    "o-types": "file:../o-types",
+    "rxjs": "^6.6.3",
+    "svelte": "^3.29.0"
+  }
 }

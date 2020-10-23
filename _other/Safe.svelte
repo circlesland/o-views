@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {navigateTo} from "../../kernel/main";
+    export let navigateTo: (dapp:string,page:string)=>{};
     // import { CirclesWrapper } from "../../kernel/circles-protocol/circlesActions";
     import moment from "moment"
     // import { theGraphClient } from "../../kernel/circles-protocol/theGraph/theGraphClient";

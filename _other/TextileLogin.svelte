@@ -1,55 +1,55 @@
 <script lang="ts">
-  import { SessionService } from "../../../kernel/services/sessionService";
+  // import { SessionService } from "../../../kernel/services/sessionService";
+  // // import { DagService } from "../../../kernel/services/dagService";
+  // import type { User } from "../../../kernel/interfaces/user";
+  // import { LoginState } from "../../../kernel/enums/loginState";
+  // import type { ServiceError } from "@textile/hub-grpc/hub_pb_service";
   // import { DagService } from "../../../kernel/services/dagService";
-  import type { User } from "../../../kernel/interfaces/user";
-  import { LoginState } from "../../../kernel/enums/loginState";
-  import type { ServiceError } from "@textile/hub-grpc/hub_pb_service";
-  import { DagService } from "../../../kernel/services/dagService";
-  import page from "page";
-  export let login: string = "";
-  export let loginProcess = LoginState.None;
-  export let user: User;
-  export let error: ServiceError;
-  import {navigateTo} from "../../../kernel/main";
+  // import page from "page";
+  // export let login: string = "";
+  // export let loginProcess = LoginState.None;
+  // export let user: User;
+  // export let error: ServiceError;
+  // import {navigateTo} from "../../../kernel/main";
 
-  let addrGatewayUrl = "";
-  SessionService.GetInstance().then((instance: SessionService) => {
-    if (instance.hasSession) {
-      navigateTo("odentity","blubb");
-    }
-    addrGatewayUrl = instance.addrGatewayUrl;
-  });
+  // let addrGatewayUrl = "";
+  // SessionService.GetInstance().then((instance: SessionService) => {
+  //   if (instance.hasSession) {
+  //     navigateTo("odentity","blubb");
+  //   }
+  //   addrGatewayUrl = instance.addrGatewayUrl;
+  // });
 
-  async function signInOrSignUpAsync() {
-    if (login == null || login == "") return;
-    loginProcess = LoginState.LoggingIn;
-    let sessionService = await SessionService.GetInstance();
-    let resp = await sessionService.signInOrSignUp(login);
+  // async function signInOrSignUpAsync() {
+  //   if (login == null || login == "") return;
+  //   loginProcess = LoginState.LoggingIn;
+  //   let sessionService = await SessionService.GetInstance();
+  //   let resp = await sessionService.signInOrSignUp(login);
 
-    if (resp.error) {
-      error = resp.error;
-      loginProcess = LoginState.Error;
-      return;
-    }
-    user = { email: sessionService.getUserMail(), name: sessionService.getUsername() };
+  //   if (resp.error) {
+  //     error = resp.error;
+  //     loginProcess = LoginState.Error;
+  //     return;
+  //   }
+  //   user = { email: sessionService.getUserMail(), name: sessionService.getUsername() };
 
-    loginProcess = LoginState.LoggedIn;
+  //   loginProcess = LoginState.LoggedIn;
 
-    //     console.log(await TextileSession.Instance.listBuckets(key.getKey(), key.getSecret()));
-    //     key = keys.getListList()[3];
-    //     console.log(await TextileSession.Instance.listBuckets(key.getKey(), key.getSecret()));
-    //     key = keys.getListList()[4];
-    //
-    //  console.log(await SessionService.GetInstance.listBuckets(key.getKey(), key.getSecret()));
-  }
-  async function dostuff() {
-    let instance = await SessionService.GetInstance();
-    let keys = await instance.listKeys();
-    var key = keys.getListList()[2];
-    await instance.listBuckets(key.getKey(), key.getSecret());
-    let dag = new DagService();
-    await dag.testhash();
-  }
+  //   //     console.log(await TextileSession.Instance.listBuckets(key.getKey(), key.getSecret()));
+  //   //     key = keys.getListList()[3];
+  //   //     console.log(await TextileSession.Instance.listBuckets(key.getKey(), key.getSecret()));
+  //   //     key = keys.getListList()[4];
+  //   //
+  //   //  console.log(await SessionService.GetInstance.listBuckets(key.getKey(), key.getSecret()));
+  // }
+  // async function dostuff() {
+  //   let instance = await SessionService.GetInstance();
+  //   let keys = await instance.listKeys();
+  //   var key = keys.getListList()[2];
+  //   await instance.listBuckets(key.getKey(), key.getSecret());
+  //   let dag = new DagService();
+  //   await dag.testhash();
+  // }
 </script>
 
 <style>
@@ -88,7 +88,7 @@
     grid-area: footer;
   }
 </style>
-
+<!-- 
 <div
   class=" bg-white h-screen flex flex-col items-center justify-center bg-grey-lighter bg-cover bg-center"
   style="background-image: url(https://source.unsplash.com/7awMZWDS4rg)">
@@ -180,8 +180,6 @@
         {#if loginProcess == LoginState.Error}
           <div class="bg-red-400 p-12 rounded-lg text-white text-lg">
             <p>{error.message}</p>
-            <!-- <p>Code: {error.code}</p> -->
-            <!-- <p>{JSON.stringify(error.metadata)}</p> -->
           </div>
         {/if}
         {#if loginProcess == LoginState.LoggedIn}
@@ -191,4 +189,4 @@
       </footer>
     </div>
   </div>
-</div>
+</div> -->

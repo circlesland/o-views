@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {navigateTo} from "../../kernel/main"
+    export let navigateTo: (dapp:string,page:string)=>{};
 </script>
 
 <h1 class="text-primary text-3xl font-bold pb-2">Register</h1>

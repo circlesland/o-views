@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { SessionService } from "../../../kernel/services/sessionService";
-  let user: { name: string; email: string };
-  SessionService.GetInstance().then((session) => {
-    user = { name: session.getUsername(), email: session.getUserMail() };
-  });
+    export let navigateTo: (dapp:string,page:string)=>{};
+
+  // import { SessionService } from "../../../kernel/services/sessionService";
+  // let user: { name: string; email: string };
+  // SessionService.GetInstance().then((session) => {
+  //   user = { name: session.getUsername(), email: session.getUserMail() };
+  // });
 </script>
 
 <style>
@@ -43,7 +45,7 @@
   }
 </style>
 
-<div
+<!-- <div
   class=" bg-white h-screen flex flex-col items-center justify-center bg-grey-lighter bg-cover bg-center"
   style="background-image: url(https://source.unsplash.com/7awMZWDS4rg)">
   <div
@@ -75,4 +77,5 @@
       </footer>
     </div>
   </div>
-</div>
+</div> -->
+BLUBB
