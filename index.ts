@@ -12,6 +12,10 @@ import UnlockSafe from "./_other/UnlockSafe.svelte"
 import Wallet from "./_other/Wallet.svelte"
 import WalletLogin from "./_other/WalletLogin.svelte"
 
+import WalletFooter from "./wallet/WalletFooter.svelte";
+import WalletHeader from "./wallet/WalletHeader.svelte";
+import WalletMain from "./wallet/WalletMain.svelte";
+
 import Router from "./Router.svelte";
 import Compositor from "./Compositor.svelte";
 import type { Component, Composite, Definition, Leaf, SvelteView, } from "o-types";
@@ -19,7 +23,7 @@ import type { Arguments as Args, Constructor } from "o-types";
 import { CssGridArguments, CssGridDefinition, CssGridLayout, DefaultLayout, SvelteViewArguments, SvelteViewDefinition, SvelteViewLeaf } from "./_other/foo";
 
 export { Router, Compositor, OmoHead, ViewNotRegistered, Component };
-export let Views: SvelteView[] = [Blubb, ErrorView, GetTrust, Register, Safe, TextileLogin, TrustSomeone, UnlockSafe, Wallet, WalletLogin];
+export let Views: SvelteView[] = [WalletFooter, WalletHeader, WalletMain, Blubb, ErrorView, GetTrust, Register, Safe, TextileLogin, TrustSomeone, UnlockSafe, Wallet, WalletLogin];
 export let Arguments: { new(): Args }[] = [CssGridArguments, SvelteViewArguments];
 export let Definitions: { new(): Definition }[] = [SvelteViewDefinition, CssGridDefinition];
 export let Layouts: any[] = [CssGridLayout, DefaultLayout];

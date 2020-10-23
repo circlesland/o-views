@@ -54,7 +54,10 @@
   {:else}
     <section
       style="{childStyle} overflow: hidden; height:100%;position:relative;">
-      <svelte:component this={svelteComponent} on:navigateTo={navigate} />
+      <svelte:component
+        this={svelteComponent}
+        on:navigateTo={navigate}
+        data={JSON.stringify(component.data)} />
     </section>
   {/if}
 {/if}
