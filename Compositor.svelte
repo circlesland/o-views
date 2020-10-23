@@ -1,21 +1,31 @@
 <script lang="ts">
-  import { OmoHead } from "./";
   import { Arguments, Component, Definition } from "o-types";
-  // import { navigate } from "o-types";
-
+  import { navigate } from "o-types";
   export let manifest: string;
   export let childStyle = "";
+  export let title = "";
+  export let error = "";
 
   let svelteComponent = null;
   let component: Component<Arguments, Definition> = null;
-
-  // if (manifest != "") {
-  //   component = Component.fromString(manifest, window.o.registry);
-  //   if (!component.isComposite()) {
-  //     var leaf: any = component;
-  //     svelteComponent = window.o.registry.getClass(leaf.getSvelteView());
-  //   }
-  // }
+  if (manifest) {
+    if (manifest == "") {
+      error = "Manifest empty";
+      manifest = null;
+    } else {
+      try {
+        component = Component.fromString(manifest, window.o.registry);
+        title = component.title;
+        if (!component.isComposite()) {
+          var leaf: any = component;
+          svelteComponent = window.o.registry.getClass(leaf.getSvelteView());
+        }
+      } catch (e) {
+        error = "error on loading manifest: " + e.message;
+        manifest = null;
+      }
+    }
+  }
 </script>
 
 <style>
@@ -31,10 +41,6 @@
 </style>
 
 {#if component}
-  {#if component.getParent() == null}
-    <OmoHead title={component.title} />
-  {/if}
-
   {#if component.isComposite()}
     <section
       class="compositor"
@@ -46,13 +52,9 @@
       {/each}
     </section>
   {:else}
-
-  <!-- on:navigateTo={(args) => navigate(args)} -->
     <section
       style="{childStyle} overflow: hidden; height:100%;position:relative;">
-      <svelte:component
-        this={svelteComponent}
-        />
+      <svelte:component this={svelteComponent} on:navigateTo={navigate} />
     </section>
   {/if}
 {/if}
