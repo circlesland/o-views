@@ -57,7 +57,7 @@
       <svelte:component
         this={svelteComponent}
         on:navigateTo={navigate}
-        data={JSON.stringify(component.data)} />
+        data={component.data} />
     </section>
   {/if}
 {/if}
